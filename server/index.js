@@ -9,6 +9,7 @@ import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
 
+
 /* configurations */
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -42,12 +43,14 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+/* ROUTES WITH FILES */
+app.post("/auth/register", upload.single("picture"), register); 
+
 /* Mongoose setup */
-const MONGO_URL='mongodb+srv://pvhoang20:mitsuriDaisuki@cluster0.invorp6.mongodb.net/?retryWrites=true&w=majority';
-const PORT = 3001;
+const PORT = process.env.PORT || 6001;
 mongoose.set('strictQuery', false);
 mongoose
-  .connect(MONGO_URL, {   
+  .connect(process.env.MONGO_URL, {   
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
