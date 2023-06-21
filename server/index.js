@@ -64,7 +64,7 @@ app.use("/posts", postRoutes);
 const PORT = process.env.PORT || 6001;
 mongoose.set('strictQuery', false);
 mongoose
-  .connect(process.env.MONGO_URL, {   
+  .connect(process.env.MONGO_URL, { // changed mongoose password @@
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
