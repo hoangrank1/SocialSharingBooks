@@ -56,7 +56,7 @@ const Navbar = () => {
             },
           }}
         >
-          SSBOOK
+          S2Book
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
